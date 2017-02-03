@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:paintview="clr-namespace:ManneDoForms.Components.PaintView;assembly=ManneDoForms"
+	x:Class="ManneDoForms.Samples.PaintViewPage"
+	Title="PaintView">
+	<ContentPage.Content>
+		<StackLayout BackgroundColor="Gray" Padding="20">
+			<Grid HeightRequest="35">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="35" />
+					<ColumnDefinition Width="35" />
+					<ColumnDefinition Width="35" />
+					<ColumnDefinition Width="35" />
+					<ColumnDefinition Width="35" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Button Grid.Row="0" Grid.Column="0" Clicked="BlackButtonClicked" BackgroundColor="Black" />
+				<Button Grid.Row="0" Grid.Column="1" Clicked="WhiteButtonClicked" BackgroundColor="White" />
+				<Button Grid.Row="0" Grid.Column="2" Clicked="RedButtonClicked" BackgroundColor="Red" />
+				<Button Grid.Row="0" Grid.Column="3" Clicked="GreenButtonClicked" BackgroundColor="Green" />
+				<Button Grid.Row="0" Grid.Column="4" Clicked="BlueButtonClicked" BackgroundColor="Blue" />
+				<Slider Grid.Row="0" Grid.Column="5" Maximum="50" Minimum="5" Value="20" ValueChanged="LineWidthValueChanged" />
+			</Grid>
+			<paintview:MannePaintView 
+				x:Name="paintView"
+				BackgroundColor="White" 
+				PaintColor="Black" 
+				LineWidth="20.0"
+				VerticalOptions="FillAndExpand" 
+				HorizontalOptions="FillAndExpand" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

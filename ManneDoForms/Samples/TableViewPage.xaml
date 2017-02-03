@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:tableView="clr-namespace:ManneDoForms.Components.TableView;assembly=ManneDoForms"
+		x:Class="ManneDoForms.Samples.TableViewPage"
+		Title="TableView">
+	<ContentPage.Content>
+		<StackLayout Padding="20,40,20,20">
+
+			<tableView:ManneTableView 
+				x:TypeArguments="x:String"
+				ItemsSource="{Binding DummyItems}"
+				HorizontalContentAlignment="Center">
+				<tableView:ManneTableView.ItemTemplate>
+					<DataTemplate>
+						<StackLayout BackgroundColor="Gray" WidthRequest="55" HeightRequest="75">
+							<Label Text="{Binding .}" TextColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+						</StackLayout>
+					</DataTemplate>
+				</tableView:ManneTableView.ItemTemplate>
+			</tableView:ManneTableView>
+
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

@@ -118,4 +118,10 @@
     <Folder Include="Renderers\" />
     <Folder Include="Renderers\PaintView\" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bubble.png" />
+    <BundleResource Include="Resources\bubble%402x.png" />
+    <BundleResource Include="Resources\handle.png" />
+    <BundleResource Include="Resources\handle%402x.png" />
+  </ItemGroup>
 </Project>
