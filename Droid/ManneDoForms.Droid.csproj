@@ -96,6 +96,8 @@
     <Compile Include="Common\CollectionExtensions.cs" />
     <Compile Include="Renderers\PaintView\MannePaintViewRenderer.cs" />
     <Compile Include="Components\RepeaterView\RepeaterView.cs" />
+    <Compile Include="Samples\RepeaterViewActivity.cs" />
+    <Compile Include="Common\RepeaterViewSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -111,6 +113,7 @@
     <Folder Include="Common\" />
     <Folder Include="Components\" />
     <Folder Include="Components\RepeaterView\" />
+    <Folder Include="Samples\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -119,6 +122,8 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\bubble.png" />
     <AndroidResource Include="Resources\drawable\handle.png" />
+    <AndroidResource Include="Resources\layout\RepeaterViewLayout.axml" />
+    <AndroidResource Include="Resources\layout\RepeaterViewItemLayout.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

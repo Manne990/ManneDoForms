@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using ManneDoForms.Common;
+using Xamarin.Forms;
 
 namespace ManneDoForms.Samples
 {
@@ -22,6 +23,17 @@ namespace ManneDoForms.Samples
         private void ShowTableView(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new TableViewPage());
+        }
+
+        private void ShowRepeaterView(object sender, System.EventArgs e)
+        {
+            if (Device.OS != TargetPlatform.Android)
+            {
+                DisplayAlert("Not Available", "This is only for Android.", "Ok");
+                return;
+            }
+
+            DependencyService.Get<IRepeaterViewSample>().Show(); 
         }
     }
 }

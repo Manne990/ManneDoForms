@@ -21,13 +21,13 @@ namespace ManneDoForms.Samples
             // Add some data to the model
             this.DummyItems = new ObservableCollection<ObservableCollection<string>>();
 
-            for (int col = 0; col < 4; col++)
+            for (int row = 0; row < 5; row++)
             {
                 var items = new ObservableCollection<string>();
 
-                for (int row = 0; row < 7; row++)
+                for (int col = 0; col < 3; col++)
                 {
-                    items.Add($"{row}, {col}");
+                    items.Add($"{col}, {row}");
                 }
 
                 this.DummyItems.Add(items);
