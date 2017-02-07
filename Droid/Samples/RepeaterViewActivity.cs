@@ -11,6 +11,7 @@ namespace ManneDoForms.Droid.Samples
     public class RepeaterViewActivity : Activity
     {
         private RepeaterViewAdapter _adapter;
+        private RepeaterView _repeaterView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -18,11 +19,9 @@ namespace ManneDoForms.Droid.Samples
 
             SetContentView(Resource.Layout.RepeaterViewLayout);
 
-            var repeaterView = FindViewById<RepeaterView>(Resource.Id.repeaterView);
-
+            _repeaterView = FindViewById<RepeaterView>(Resource.Id.repeaterView);
             _adapter = new RepeaterViewAdapter();
-
-            repeaterView.SetAdapter(_adapter);
+            _repeaterView.SetAdapter(_adapter);
         }
 
         protected override void OnResume()
@@ -30,6 +29,14 @@ namespace ManneDoForms.Droid.Samples
             base.OnResume();
 
             _adapter.Update(new List<string> { "Item 1", "Item 2", "Item 3", "Item 4" });
+        }
+
+        protected override void OnDestroy()
+        {
+            _adapter.Dispose();
+            _repeaterView.Dispose();
+
+            base.OnDestroy();
         }
 
         private class RepeaterViewAdapter : RepeaterView.Adapter

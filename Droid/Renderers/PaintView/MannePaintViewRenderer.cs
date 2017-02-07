@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Android.Graphics;
-using Android.Support.V4.View;
 using Android.Views;
 using ManneDoForms.Droid.Common;
 using Xamarin.Forms;

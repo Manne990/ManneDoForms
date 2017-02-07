@@ -31,28 +31,35 @@ namespace ManneDoForms.Droid.Components.RepeaterView
         {
             _adapter = adapter;
 
-            _adapter.SetParentView(this);
+            _adapter.OnAttachedToRepeaterView(this);
             _adapter.NotifyDataSetChanged();
         }
 
-        public abstract class Adapter
+        protected override void Dispose(bool disposing)
         {
-            private WeakReference<RepeaterView> _view;
+            _adapter.Dispose();
+            _adapter = null;
+            
+            base.Dispose(disposing);
+        }
 
-            // ReSharper disable once UnassignedGetOnlyAutoProperty
+        public abstract class Adapter : IDisposable
+        {
+            private WeakReference<RepeaterView> _repeaterView;
+
             protected virtual int ItemCount { get; }
             protected abstract ViewHolder OnCreateViewHolder(ViewGroup parent);
             protected abstract void OnBindViewHolder(ViewHolder holder, int position);
 
             public void NotifyDataSetChanged()
             {
-                if (_view == null)
+                if (_repeaterView == null)
                 {
                     return;
                 }
 
                 RepeaterView repeaterView;
-                if (_view.TryGetTarget(out repeaterView) == false)
+                if (_repeaterView.TryGetTarget(out repeaterView) == false)
                 {
                     return;
                 }
@@ -74,19 +81,30 @@ namespace ManneDoForms.Droid.Components.RepeaterView
                 }
             }
 
-            public void SetParentView(RepeaterView view)
+            public virtual void OnAttachedToRepeaterView(RepeaterView view)
             {
-                _view = new WeakReference<RepeaterView>(view);
+                _repeaterView = new WeakReference<RepeaterView>(view);
+            }
+
+            public void Dispose()
+            {
+                _repeaterView = null;
             }
         }
 
-        public abstract class ViewHolder
+        public abstract class ViewHolder : IDisposable
         {
-            public View ItemView { get; }
+            public View ItemView { get; private set; }
 
             protected ViewHolder(View itemView)
             {
                 ItemView = itemView;
+            }
+
+            public void Dispose()
+            {
+                ItemView.Dispose();
+                ItemView = null;
             }
         }
     }
