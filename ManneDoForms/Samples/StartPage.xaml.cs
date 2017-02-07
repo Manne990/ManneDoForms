@@ -25,6 +25,11 @@ namespace ManneDoForms.Samples
             Navigation.PushAsync(new TableViewPage());
         }
 
+        private void ShowPhotoViewer(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new PhotoViewerPage());
+        }
+
         private void ShowRepeaterView(object sender, System.EventArgs e)
         {
             if (Device.OS != TargetPlatform.Android)

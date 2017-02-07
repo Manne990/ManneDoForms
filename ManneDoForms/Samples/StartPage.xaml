@@ -6,10 +6,10 @@
 		Title="Manne Do Forms">
 	<ContentPage.Content>
 		<StackLayout>
-			<Label Text="Manne Do Forms"/>
 			<Button Text="PaintView" Clicked="ShowPaintView" />
 			<Button Text="RangeSliderView" Clicked="ShowRangeSliderView" />
 			<Button Text="TableView" Clicked="ShowTableView" />
+			<Button Text="PhotoViewer" Clicked="ShowPhotoViewer" />
 			<Button Text="RepeaterView (Android)" Clicked="ShowRepeaterView" />
 		</StackLayout>
 	</ContentPage.Content>
