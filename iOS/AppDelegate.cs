@@ -1,23 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿using Autofac;
 using Foundation;
+using mTouchPDFReader.Library.Interfaces;
+using mTouchPDFReader.Library.Managers;
 using UIKit;
 
 namespace ManneDoForms.iOS
 {
-	[Register("AppDelegate")]
+    [Register("AppDelegate")]
 	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
 	{
-		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+		public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
 		{
 			global::Xamarin.Forms.Forms.Init();
 
 			LoadApplication(new App());
 
-			return base.FinishedLaunching(app, options);
+            // Init PDF Viewer
+            var builder = new ContainerBuilder();
+
+            builder.RegisterType<DocumentBookmarksManager>().As<IDocumentBookmarksManager>().SingleInstance();
+            builder.RegisterType<DocumentNoteManager>().As<IDocumentNoteManager>().SingleInstance();
+            builder.RegisterType<SettingsManager>().As<ISettingsManager>().SingleInstance();
+
+            MgrAccessor.Initialize(builder);
+
+			return base.FinishedLaunching(uiApplication, launchOptions);
 		}
 	}
 }
-

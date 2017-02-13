@@ -10,6 +10,7 @@
 			<Button Text="RangeSliderView" Clicked="ShowRangeSliderView" />
 			<Button Text="TableView" Clicked="ShowTableView" />
 			<Button Text="PhotoViewer" Clicked="ShowPhotoViewer" />
+			<Button Text="PdfViewer" Clicked="ShowPdfViewer" />
 			<Button Text="RepeaterView (Android)" Clicked="ShowRepeaterView" />
 		</StackLayout>
 	</ContentPage.Content>

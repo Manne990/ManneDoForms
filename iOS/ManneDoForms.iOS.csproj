@@ -89,6 +89,9 @@
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Autofac.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ManneDoForms\ManneDoForms.csproj">
@@ -155,5 +158,6 @@
     <BundleResource Include="Resources\Icon-Small.png" />
     <BundleResource Include="Resources\Icon-Small%402x.png" />
     <BundleResource Include="Resources\Icon-Small%403x.png" />
+    <BundleResource Include="Resources\example.pdf" />
   </ItemGroup>
 </Project>

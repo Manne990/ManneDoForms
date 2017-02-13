@@ -7,20 +7,20 @@ namespace ManneDoForms.Components.PdfViewer
     {
         #region Public Properties
 
-        public static readonly BindableProperty UrlProperty = BindableProperty.Create(nameof(Url), typeof(string), typeof(MannePdfView),
+        public static readonly BindableProperty FilenameProperty = BindableProperty.Create(nameof(Filename), typeof(string), typeof(MannePdfView),
             defaultValue: string.Empty,
             defaultBindingMode: BindingMode.TwoWay,
             propertyChanging: (bindable, oldValue, newValue) =>
             {
                 var ctrl = (MannePdfView)bindable;
-                ctrl.Url = newValue.ToString();
+                ctrl.Filename = newValue.ToString();
             }
         );
 
-        public string Url
+        public string Filename
         {
-            get { return (string)GetValue(UrlProperty); }
-            set { SetValue(UrlProperty, value); }
+            get { return (string)GetValue(FilenameProperty); }
+            set { SetValue(FilenameProperty, value); }
         }
 
         #endregion

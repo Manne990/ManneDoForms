@@ -11,6 +11,14 @@ namespace ManneDoForms.Droid.Renderers.PdfViewer
 {
     public class MannePdfViewRenderer : ViewRenderer
     {
+        #region Private Members
+
+        private MannePdfView _view;
+
+        #endregion
+
+        // ----------------------------------------------
+
         #region Overrides
 
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.View> e)
@@ -22,21 +30,29 @@ namespace ManneDoForms.Droid.Renderers.PdfViewer
                 return;
             }
 
-            // Get the forms view
-            var view = (MannePdfView)e.NewElement;
+            _view = (MannePdfView)e.NewElement;
+        }
 
-            // Open the file with an intent
-            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            var pdfFilePath = Path.Combine(documentsPath, view.Url.Replace("file://", ""));
-            var result = OpenFileWithIntent(pdfFilePath);
+        protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
 
-            if (result)
+            if (e.PropertyName == nameof(_view.Filename))
             {
-                view.SetFinished();
-            }
-            else
-            {
-                view.SetError();
+                // Open the file with an intent
+                //var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                //var pdfFilePath = Path.Combine(documentsPath, _view.Filename.Replace("file://", ""));
+                //var result = OpenFileWithIntent(pdfFilePath);
+                var result = OpenFileWithIntent("file:///android_asset/example.pdf");
+
+                if (result)
+                {
+                    _view.SetFinished();
+                }
+                else
+                {
+                    _view.SetError();
+                }
             }
         }
 
@@ -48,27 +64,42 @@ namespace ManneDoForms.Droid.Renderers.PdfViewer
 
         private bool OpenFileWithIntent(string filePath)
         {
-            try
-            {
-                var file = new Java.IO.File(filePath);
-                var uri = FileProvider.GetUriForFile(Context, "se.idoapps.mannedoforms.manne_do_forms.fileprovider", file);
+            var file = new Java.IO.File(filePath);
+            var uri = FileProvider.GetUriForFile(Context, "se.idoapps.mannedoforms.manne_do_forms.fileprovider", file);
 
-                //REMARK: In the AndroidManifest.xml file the id above "se.idoapps.mannedoforms.manne_do_forms.fileprovider" must be present as a provider.
+            //REMARK: In the AndroidManifest.xml file the id above "se.idoapps.mannedoforms.manne_do_forms.fileprovider" must be present as a provider.
 
-                var intent = new Intent();
+            var intent = new Intent();
 
-                intent.SetAction(Intent.ActionView);
-                intent.SetFlags(ActivityFlags.GrantReadUriPermission);
-                intent.SetDataAndType(uri, "application/pdf");
+            intent.SetAction(Intent.ActionView);
+            intent.SetFlags(ActivityFlags.GrantReadUriPermission);
+            intent.SetDataAndType(uri, "application/pdf");
 
-                Context.StartActivity(intent);
+            Context.StartActivity(intent);
 
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return true;
+
+            //try
+            //{
+            //    var file = new Java.IO.File(filePath);
+            //    var uri = FileProvider.GetUriForFile(Context, "se.idoapps.mannedoforms.manne_do_forms.fileprovider", file);
+
+            //    //REMARK: In the AndroidManifest.xml file the id above "se.idoapps.mannedoforms.manne_do_forms.fileprovider" must be present as a provider.
+
+            //    var intent = new Intent();
+
+            //    intent.SetAction(Intent.ActionView);
+            //    intent.SetFlags(ActivityFlags.GrantReadUriPermission);
+            //    intent.SetDataAndType(uri, "application/pdf");
+
+            //    Context.StartActivity(intent);
+
+            //    return true;
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
         }
 
         #endregion

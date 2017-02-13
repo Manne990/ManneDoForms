@@ -25,26 +25,48 @@ namespace ManneDoForms.iOS.Renderers.PdfViewer
         {
             base.OnElementChanged(e);
 
-            // Check if we have a control
             if (e.NewElement == null)
             {
                 return;
             }
 
-            // Get the forms view
             _view = (MannePdfView)e.NewElement;
 
-            // Create the native view
-            var docViewController = new DocumentVC(1, "Name", _view.Url.Replace("file://", string.Empty));
-
-            _nativeView = docViewController.View;
+            _nativeView = new UIView();
 
             SetNativeControl(_nativeView);
         }
 
+        protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+
+            if (e.PropertyName == nameof(_view.Filename))
+            {
+                try
+                {
+                    var docViewController = new DocumentVC(1, "Document", _view.Filename);
+
+                    if (docViewController.View == null)
+                    {
+                        return;
+                    }
+
+                    _nativeView = docViewController.View;
+
+                    SetNativeControl(_nativeView);
+
+                    _view.SetFinished();
+                }
+                catch
+                {
+                    _view.SetError();
+                }
+            }
+        }
+
         protected override void Dispose(bool disposing)
         {
-            // Dispose all components
             if (_nativeView != null)
             {
                 _nativeView.Dispose();

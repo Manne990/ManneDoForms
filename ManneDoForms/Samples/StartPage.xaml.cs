@@ -30,6 +30,11 @@ namespace ManneDoForms.Samples
             Navigation.PushAsync(new PhotoViewerPage());
         }
 
+        private void ShowPdfViewer(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new PdfPage());
+        }
+
         private void ShowRepeaterView(object sender, System.EventArgs e)
         {
             if (Device.OS != TargetPlatform.Android)
