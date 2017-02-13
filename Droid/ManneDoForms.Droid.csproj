@@ -95,6 +95,7 @@
     <Compile Include="Common\AndroidDevice.cs" />
     <Compile Include="Common\CollectionExtensions.cs" />
     <Compile Include="Renderers\PaintView\MannePaintViewRenderer.cs" />
+    <Compile Include="Renderers\PdfViewer\MannePdfViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -108,12 +109,15 @@
     <Folder Include="Renderers\" />
     <Folder Include="Renderers\PaintView\" />
     <Folder Include="Common\" />
+    <Folder Include="Renderers\PdfViewer\" />
+    <Folder Include="Resources\xml\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\xml\filepaths.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

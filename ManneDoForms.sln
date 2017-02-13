@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManneDoForms.iOS", "iOS\Man
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManneDoForms.Droid", "Droid\ManneDoForms.Droid.csproj", "{4C854B93-AC3B-4466-A94C-4A88908C7588}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependencies", "dependencies", "{CC0E8CEC-036F-40C3-BBB2-2645C3548F4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mTouchPDFReaderLibrary", "dependencies\mTouchPDFReader\mTouchPDFReaderLibrary.csproj", "{9DAD0158-D923-48BF-BC35-1014C00B7C95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,5 +57,20 @@ Global
 		{A7769EFA-4901-4A5E-8D9F-B9DEEC207D7C}.Release|iPhone.Build.0 = Release|iPhone
 		{A7769EFA-4901-4A5E-8D9F-B9DEEC207D7C}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{A7769EFA-4901-4A5E-8D9F-B9DEEC207D7C}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Release|iPhone.Build.0 = Release|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95}.Debug|iPhone.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9DAD0158-D923-48BF-BC35-1014C00B7C95} = {CC0E8CEC-036F-40C3-BBB2-2645C3548F4F}
 	EndGlobalSection
 EndGlobal

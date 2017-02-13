@@ -95,6 +95,10 @@
       <Project>{2B956DDF-5CF8-4797-A832-F7CA28B409C8}</Project>
       <Name>ManneDoForms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\dependencies\mTouchPDFReader\mTouchPDFReaderLibrary.csproj">
+      <Project>{9DAD0158-D923-48BF-BC35-1014C00B7C95}</Project>
+      <Name>mTouchPDFReaderLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
@@ -111,11 +115,13 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\PaintView\MannePaintViewRenderer.cs" />
+    <Compile Include="Renderers\PdfViewer\MannePdfViewRenderer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <ItemGroup>
     <Folder Include="Renderers\" />
     <Folder Include="Renderers\PaintView\" />
+    <Folder Include="Renderers\PdfViewer\" />
   </ItemGroup>
 </Project>
