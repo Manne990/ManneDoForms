@@ -96,6 +96,32 @@
     <Compile Include="Common\CollectionExtensions.cs" />
     <Compile Include="Renderers\PaintView\MannePaintViewRenderer.cs" />
     <Compile Include="Renderers\PdfViewer\MannePdfViewRenderer.cs" />
+    <Compile Include="Components\RepeaterView\RepeaterView.cs" />
+    <Compile Include="Samples\RepeaterViewActivity.cs" />
+    <Compile Include="Common\RepeaterViewSample.cs" />
+    <Compile Include="Common\FileSystem\FileSystem.cs" />
+    <Compile Include="Common\PhotoViewDroid\Compat.cs" />
+    <Compile Include="Common\PhotoViewDroid\DefaultOnDoubleTapListener.cs" />
+    <Compile Include="Common\PhotoViewDroid\IPhotoViewDroid.cs" />
+    <Compile Include="Common\PhotoViewDroid\IPhotoViewDroidConstants.cs" />
+    <Compile Include="Common\PhotoViewDroid\PhotoViewDroid.cs" />
+    <Compile Include="Common\PhotoViewDroid\PhotoViewDroidAttacher.cs" />
+    <Compile Include="Common\PhotoViewDroid\Gestures\CupcakeGestureDetector.cs" />
+    <Compile Include="Common\PhotoViewDroid\Gestures\EclairGestureDetector.cs" />
+    <Compile Include="Common\PhotoViewDroid\Gestures\FroyoGestureDetector.cs" />
+    <Compile Include="Common\PhotoViewDroid\Gestures\IGestureDetector.cs" />
+    <Compile Include="Common\PhotoViewDroid\Gestures\IOnGestureListener.cs" />
+    <Compile Include="Common\PhotoViewDroid\Gestures\VersionedGestureDetector.cs" />
+    <Compile Include="Common\PhotoViewDroid\Log\ILogger.cs" />
+    <Compile Include="Common\PhotoViewDroid\Log\LogManager.cs" />
+    <Compile Include="Common\PhotoViewDroid\Log\LoggerDefault.cs" />
+    <Compile Include="Common\PhotoViewDroid\Scrollerproxy\GingerScroller.cs" />
+    <Compile Include="Common\PhotoViewDroid\Scrollerproxy\IcsScroller.cs" />
+    <Compile Include="Common\PhotoViewDroid\Scrollerproxy\PreGingerScroller.cs" />
+    <Compile Include="Common\PhotoViewDroid\Scrollerproxy\ScrollerProxy.cs" />
+    <Compile Include="Renderers\PhotoViewer\CarouselLayoutRenderer.cs" />
+    <Compile Include="Renderers\PhotoViewer\PhotoViewRenderer.cs" />
+    <Compile Include="Renderers\PhotoViewer\RoundedBoxRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -111,6 +137,11 @@
     <Folder Include="Common\" />
     <Folder Include="Renderers\PdfViewer\" />
     <Folder Include="Resources\xml\" />
+    <Folder Include="Components\" />
+    <Folder Include="Components\RepeaterView\" />
+    <Folder Include="Samples\" />
+    <Folder Include="Common\FileSystem\" />
+    <Folder Include="Renderers\PhotoViewer\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -118,6 +149,10 @@
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\xml\filepaths.xml" />
+    <AndroidResource Include="Resources\drawable\bubble.png" />
+    <AndroidResource Include="Resources\drawable\handle.png" />
+    <AndroidResource Include="Resources\layout\RepeaterViewLayout.axml" />
+    <AndroidResource Include="Resources\layout\RepeaterViewItemLayout.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
