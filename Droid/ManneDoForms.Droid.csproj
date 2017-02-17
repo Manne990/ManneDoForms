@@ -122,6 +122,7 @@
     <Compile Include="Renderers\PhotoViewer\CarouselLayoutRenderer.cs" />
     <Compile Include="Renderers\PhotoViewer\PhotoViewRenderer.cs" />
     <Compile Include="Renderers\PhotoViewer\RoundedBoxRenderer.cs" />
+    <Compile Include="Renderers\DropDownView\ManneDropDownViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -142,6 +143,7 @@
     <Folder Include="Samples\" />
     <Folder Include="Common\FileSystem\" />
     <Folder Include="Renderers\PhotoViewer\" />
+    <Folder Include="Renderers\DropDownView\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -153,6 +155,10 @@
     <AndroidResource Include="Resources\drawable\handle.png" />
     <AndroidResource Include="Resources\layout\RepeaterViewLayout.axml" />
     <AndroidResource Include="Resources\layout\RepeaterViewItemLayout.axml" />
+    <AndroidResource Include="Resources\drawable\spinner_background.xml" />
+    <AndroidResource Include="Resources\drawable\icon_dropdown_arr.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icon_dropdown_arr.png" />
+    <AndroidResource Include="Resources\layout\SpinnerItemLayout.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\example.pdf" />

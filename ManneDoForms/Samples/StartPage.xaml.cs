@@ -35,6 +35,11 @@ namespace ManneDoForms.Samples
             Navigation.PushAsync(new PdfPage());
         }
 
+        private void ShowDropDown(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new DropDownViewPage());
+        }
+
         private void ShowRepeaterView(object sender, System.EventArgs e)
         {
             if (Device.OS != TargetPlatform.Android)
