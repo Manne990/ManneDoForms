@@ -123,6 +123,7 @@
     <Compile Include="Renderers\PhotoViewer\PhotoViewRenderer.cs" />
     <Compile Include="Renderers\PhotoViewer\RoundedBoxRenderer.cs" />
     <Compile Include="Renderers\DropDownView\ManneDropDownViewRenderer.cs" />
+    <Compile Include="Renderers\LabelView\ManneLabelRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -144,6 +145,7 @@
     <Folder Include="Common\FileSystem\" />
     <Folder Include="Renderers\PhotoViewer\" />
     <Folder Include="Renderers\DropDownView\" />
+    <Folder Include="Renderers\LabelView\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />

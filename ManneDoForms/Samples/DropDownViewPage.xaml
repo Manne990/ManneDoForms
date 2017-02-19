@@ -3,12 +3,13 @@
 		xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		xmlns:component="clr-namespace:ManneDoForms.Components.DropDownView;assembly=ManneDoForms" 
+		xmlns:label="clr-namespace:ManneDoForms.Components.LabelView;assembly=ManneDoForms" 
 		x:Class="ManneDoForms.Samples.DropDownViewPage"
 		BackgroundColor="Silver">
 	<ContentPage.Content>
 		<Grid>
 		    <Grid.RowDefinitions>
-				<RowDefinition Height="30" />
+				<RowDefinition Height="40" />
 				<RowDefinition Height="40" />
 		        <RowDefinition Height="*" />
 		    </Grid.RowDefinitions>
@@ -17,7 +18,20 @@
 		        <ColumnDefinition Width="*" />
 		    </Grid.ColumnDefinitions>
 
-			<Label Grid.Row="0" Grid.Column="0" BackgroundColor="White" TextColor="Black" Text="{Binding SelectedItem}" />
+			<label:ManneLabel 
+				Grid.Row="0" 
+				Grid.Column="0" 
+				BackgroundColor="White" 
+				VerticalTextAlignment="Center"
+				TextColor="Black"
+				Text="{Binding SelectedItem}">
+				<label:ManneLabel.Padding>
+					<OnPlatform x:TypeArguments="Thickness">
+						<OnPlatform.iOS>10, 0, 0, 0</OnPlatform.iOS>
+						<OnPlatform.Android>20, 0, 0, 0</OnPlatform.Android>
+					</OnPlatform>
+				</label:ManneLabel.Padding>
+			</label:ManneLabel>
 			
 			<component:ManneDropDownView 
 				Grid.Row="1"

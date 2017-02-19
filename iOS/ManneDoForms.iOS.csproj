@@ -132,6 +132,7 @@
     <Compile Include="Renderers\PhotoViewer\PhotoViewRenderer.cs" />
     <Compile Include="Renderers\PhotoViewer\RoundedBoxRenderer.cs" />
     <Compile Include="Renderers\DropDownView\ManneDropDownViewRenderer.cs" />
+    <Compile Include="Renderers\LabelView\ManneLabelRenderer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -143,6 +144,7 @@
     <Folder Include="Common\FileSystem\" />
     <Folder Include="Renderers\PhotoViewer\" />
     <Folder Include="Renderers\DropDownView\" />
+    <Folder Include="Renderers\LabelView\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\bubble.png" />
