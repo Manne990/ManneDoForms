@@ -1,5 +1,5 @@
 # Manne Do Forms!
-Free Open Source Components for Xamarin Forms  
+Free Open Source Components for Xamarin  
   
 Xamarin Forms  
 PaintView - Paint with touch (iOS/Android Custom Renderer)  
