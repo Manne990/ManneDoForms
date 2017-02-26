@@ -30,6 +30,11 @@ namespace ManneDoForms.Samples
             Navigation.PushAsync(new PhotoViewerPage());
         }
 
+        private void ShowVideoViewer(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new VideoPage());
+        }
+
         private void ShowPdfViewer(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new PdfPage());

@@ -10,6 +10,7 @@
 			<Button Text="RangeSliderView" Clicked="ShowRangeSliderView" />
 			<Button Text="TableView" Clicked="ShowTableView" />
 			<Button Text="PhotoViewer" Clicked="ShowPhotoViewer" />
+			<Button Text="VideoViewer" Clicked="ShowVideoViewer" />
 			<Button Text="PdfViewer" Clicked="ShowPdfViewer" />
 			<Button Text="DropDownView" Clicked="ShowDropDown" />
 			<Button Text="RepeaterView (Android)" Clicked="ShowRepeaterView" />
