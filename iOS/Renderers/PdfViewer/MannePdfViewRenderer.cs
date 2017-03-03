@@ -21,7 +21,7 @@ namespace ManneDoForms.iOS.Renderers.PdfViewer
 
         #region Overrides
 
-        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.View> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<View> e)
         {
             base.OnElementChanged(e);
 
@@ -41,11 +41,11 @@ namespace ManneDoForms.iOS.Renderers.PdfViewer
         {
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName == nameof(_view.Filename))
+            if (e.PropertyName == nameof(_view.LocalFilePath))
             {
                 try
                 {
-                    var docViewController = new DocumentVC(1, "Document", _view.Filename);
+                    var docViewController = new DocumentVC(1, "Document", _view.LocalFilePath.Replace("file://", string.Empty));
 
                     if (docViewController.View == null)
                     {

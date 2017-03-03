@@ -15,7 +15,8 @@
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>ManneDoForms.Droid</AssemblyName>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <AndroidTlsProvider></AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -154,7 +155,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-    <AndroidResource Include="Resources\xml\filepaths.xml" />
     <AndroidResource Include="Resources\drawable\bubble.png" />
     <AndroidResource Include="Resources\drawable\handle.png" />
     <AndroidResource Include="Resources\layout\RepeaterViewLayout.axml" />
@@ -163,9 +163,6 @@
     <AndroidResource Include="Resources\drawable\icon_dropdown_arr.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon_dropdown_arr.png" />
     <AndroidResource Include="Resources\layout\SpinnerItemLayout.axml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\example.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="se.idoapps.mannedoforms.manne_do_forms">
 	<uses-sdk android:minSdkVersion="15" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<application android:label="Manne Do Forms" android:icon="@drawable/icon">
-		<provider android:name="android.support.v4.content.FileProvider" android:authorities="se.idoapps.mannedoforms.manne_do_forms.fileprovider" android:exported="false" android:grantUriPermissions="true">
-			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths" />
-		</provider>
 	</application>
 </manifest>

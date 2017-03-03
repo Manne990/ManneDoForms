@@ -164,7 +164,6 @@
     <BundleResource Include="Resources\Icon-Small.png" />
     <BundleResource Include="Resources\Icon-Small%402x.png" />
     <BundleResource Include="Resources\Icon-Small%403x.png" />
-    <BundleResource Include="Resources\example.pdf" />
     <BundleResource Include="Resources\icon_dropdown-arr.png" />
     <BundleResource Include="Resources\icon_dropdown-arr%402x.png" />
   </ItemGroup>

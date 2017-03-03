@@ -22,7 +22,7 @@ namespace ManneDoForms.iOS.Renderers.VideoView
 
         #region Overrides
 
-        protected override void OnElementChanged(ElementChangedEventArgs<XamarinForms.View> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<View> e)
         {
             base.OnElementChanged(e);
 
