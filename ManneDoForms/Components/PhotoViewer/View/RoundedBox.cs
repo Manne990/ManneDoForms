@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace ManneDoForms.Common.PhotoViewer.View
+namespace ManneDoForms.Components.PhotoViewer.View
 {
     public class RoundedBox : BoxView
     {

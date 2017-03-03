@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using ManneDoForms.Common.PhotoViewer.Model;
+using ManneDoForms.Common;
+using ManneDoForms.Components.PhotoViewer.Model;
 using Xamarin.Forms;
 
-namespace ManneDoForms.Common.PhotoViewer.View
+namespace ManneDoForms.Components.PhotoViewer.View
 {
     public class ImageTemplate : ContentView, ICarouselLayoutChildDelegate
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using CoreGraphics;
-using ManneDoForms.Common.PhotoViewer.View;
+using ManneDoForms.Components.PhotoViewer.View;
 using ManneDoForms.iOS.Renderers.PhotoViewer;
 using UIKit;
 using Xamarin.Forms;

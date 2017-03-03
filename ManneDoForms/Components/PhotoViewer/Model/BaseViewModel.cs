@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace ManneDoForms.Common.PhotoViewer.Model
+namespace ManneDoForms.Components.PhotoViewer.Model
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {

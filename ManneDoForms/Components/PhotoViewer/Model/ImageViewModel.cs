@@ -1,4 +1,4 @@
-﻿namespace ManneDoForms.Common.PhotoViewer.Model
+﻿namespace ManneDoForms.Components.PhotoViewer.Model
 {
     public class ImageViewModel : BaseViewModel
     {

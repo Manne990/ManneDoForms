@@ -2,8 +2,8 @@
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using System.Net.Http;
-using ManneDoForms.Common.PhotoViewer.View;
 using ManneDoForms.Common;
+using ManneDoForms.Components.PhotoViewer.View;
 
 namespace ManneDoForms.Samples
 {

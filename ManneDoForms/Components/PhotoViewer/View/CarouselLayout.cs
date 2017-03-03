@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace ManneDoForms.Common.PhotoViewer.View
+namespace ManneDoForms.Components.PhotoViewer.View
 {
     public interface ICarouselLayoutChildDelegate
     {

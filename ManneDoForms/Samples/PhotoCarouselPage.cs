@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using ManneDoForms.Common.PhotoViewer.Model;
-using ManneDoForms.Common.PhotoViewer.View;
+using ManneDoForms.Components.PhotoViewer.Model;
+using ManneDoForms.Components.PhotoViewer.View;
 using Xamarin.Forms;
 
 namespace ManneDoForms.Samples

@@ -1,6 +1,6 @@
 ﻿using System;
 using CoreGraphics;
-using ManneDoForms.Common.PhotoViewer.View;
+using ManneDoForms.Components.PhotoViewer.View;
 using ManneDoForms.iOS.Common;
 using ManneDoForms.iOS.Common.FileSystem;
 using ManneDoForms.iOS.Renderers.PhotoViewer;

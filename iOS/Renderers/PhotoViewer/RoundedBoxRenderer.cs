@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using ManneDoForms.Common.PhotoViewer.View;
+using ManneDoForms.Components.PhotoViewer.View;
 using ManneDoForms.iOS.Renderers.PhotoViewer;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;

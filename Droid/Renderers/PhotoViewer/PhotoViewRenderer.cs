@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Android.Content.Res;
 using Android.Graphics;
-using ManneDoForms.Common.PhotoViewer.View;
+using ManneDoForms.Components.PhotoViewer.View;
 using ManneDoForms.Droid.Common.FileSystem;
 using ManneDoForms.Droid.Common.PhotoViewDroid;
 using ManneDoForms.Droid.Renderers.PhotoViewer;

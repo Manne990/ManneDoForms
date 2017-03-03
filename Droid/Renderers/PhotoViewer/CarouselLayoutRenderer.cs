@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel;
-using System.Reflection;
 using System.Timers;
 using Android.Graphics;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
-using ManneDoForms.Common.PhotoViewer.View;
+using ManneDoForms.Components.PhotoViewer.View;
 using ManneDoForms.Droid.Renderers.PhotoViewer;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;

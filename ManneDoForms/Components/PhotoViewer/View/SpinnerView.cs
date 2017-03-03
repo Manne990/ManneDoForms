@@ -1,6 +1,7 @@
-﻿using Xamarin.Forms;
+﻿using ManneDoForms.Common;
+using Xamarin.Forms;
 
-namespace ManneDoForms.Common.PhotoViewer.View
+namespace ManneDoForms.Components.PhotoViewer.View
 {
     public class SpinnerView : ContentView
     {

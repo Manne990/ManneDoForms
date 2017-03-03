@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using ManneDoForms.Common.PhotoViewer.Model;
+using ManneDoForms.Components.PhotoViewer.Model;
 using Xamarin.Forms;
 
-namespace ManneDoForms.Common.PhotoViewer.View
+namespace ManneDoForms.Components.PhotoViewer.View
 {
     public class PhotoCarousel : ContentView
     {
