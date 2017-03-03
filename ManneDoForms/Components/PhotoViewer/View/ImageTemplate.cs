@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using ManneDoForms.Common;
 using ManneDoForms.Components.PhotoViewer.Model;
 using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace ManneDoForms.Components.PhotoViewer.View
 {
@@ -76,7 +77,9 @@ namespace ManneDoForms.Components.PhotoViewer.View
                     Content = new SpinnerView() { IsBusy = true };
                 });
 
-                await DownloadAndSaveFile(imageUrl, imageName);
+                var api = Resolver.Resolve<IApi>();
+
+                await api.DownloadAndSaveFile(imageUrl, imageName);
 
                 Device.BeginInvokeOnMainThread(() => {
                     Content = _photoView;
@@ -101,36 +104,6 @@ namespace ManneDoForms.Components.PhotoViewer.View
             });
 
             //TODO: Find a way to unload invisible images to save memory
-        }
-
-        #endregion
-
-        // ------------------------------------------------
-
-        #region Private Methods
-
-        private async Task DownloadAndSaveFile(string url, string filename)
-        {
-            if (string.IsNullOrWhiteSpace(url))
-            {
-                return;
-            }
-
-            var httpClient = new HttpClient();
-            var fileSystem = DependencyService.Get<IFileSystem>();
-
-            try
-            {
-                // Download file
-                var streamAsync = await httpClient.GetStreamAsync(url);
-
-                // Save the file
-                fileSystem.SaveBinaryFile(filename, streamAsync);
-            }
-            catch(Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("Download failed! {0}", ex.Message);
-            }
         }
 
         #endregion

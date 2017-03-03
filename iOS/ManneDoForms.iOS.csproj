@@ -92,6 +92,12 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.3.5.2\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="XLabs.Ioc">
+      <HintPath>..\packages\XLabs.IoC.2.0.5782\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Ioc.TinyIOC.iOS">
+      <HintPath>..\packages\XLabs.IoC.TinyIoC.2.0.5782\lib\Xamarin.iOS10\XLabs.Ioc.TinyIOC.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ManneDoForms\ManneDoForms.csproj">

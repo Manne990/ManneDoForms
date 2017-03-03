@@ -82,6 +82,12 @@
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="XLabs.Ioc">
+      <HintPath>..\packages\XLabs.IoC.2.0.5782\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Ioc.TinyIOC.Droid">
+      <HintPath>..\packages\XLabs.IoC.TinyIoC.2.0.5782\lib\MonoAndroid\XLabs.Ioc.TinyIOC.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ManneDoForms\ManneDoForms.csproj">

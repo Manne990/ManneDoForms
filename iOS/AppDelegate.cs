@@ -2,7 +2,10 @@
 using Foundation;
 using mTouchPDFReader.Library.Interfaces;
 using mTouchPDFReader.Library.Managers;
+using TinyIoC;
 using UIKit;
+using XLabs.Ioc;
+using XLabs.Ioc.TinyIOC;
 
 namespace ManneDoForms.iOS
 {
@@ -11,6 +14,15 @@ namespace ManneDoForms.iOS
 	{
 		public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
 		{
+            // Init IoC Container
+            var container = TinyIoCContainer.Current;
+            var tinyContainer = new TinyContainer(container);
+
+            container.Register<IDependencyContainer>(tinyContainer);
+
+            Resolver.SetResolver(new TinyResolver(container));
+
+            // Init Forms
 			global::Xamarin.Forms.Forms.Init();
 
 			LoadApplication(new App());

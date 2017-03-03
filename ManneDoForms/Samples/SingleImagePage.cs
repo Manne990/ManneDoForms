@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using ManneDoForms.Common;
 using ManneDoForms.Components.PhotoViewer.View;
+using XLabs.Ioc;
 
 namespace ManneDoForms.Samples
 {
@@ -35,27 +36,11 @@ namespace ManneDoForms.Samples
             }
             else
             {
-                await DownloadAndSaveFile(imageUrl, imageName);
+                var api = Resolver.Resolve<IApi>();
+
+                await api.DownloadAndSaveFile(imageUrl, imageName);
+
                 ShowImage(imageName);
-            }
-        }
-
-        private async Task DownloadAndSaveFile(string url, string filename)
-        {
-            var httpClient = new HttpClient();
-            var fileSystem = DependencyService.Get<IFileSystem>();
-
-            try
-            {
-                // Download file
-                var streamAsync = await httpClient.GetStreamAsync(url);
-
-                // Save the file
-                fileSystem.SaveBinaryFile(filename, streamAsync);
-            }
-            catch
-            {
-                await DisplayAlert("Error!", "Download failed!", "Ok");
             }
         }
 

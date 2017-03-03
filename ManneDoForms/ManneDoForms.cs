@@ -1,5 +1,6 @@
 ﻿using ManneDoForms.Samples;
 using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace ManneDoForms
 {
@@ -7,6 +8,12 @@ namespace ManneDoForms
 	{
 		public App()
 		{
+            // Register services in IoC Container
+            var container = Resolver.Resolve<IDependencyContainer>();
+
+            container.RegisterSingle<Common.IApi, Common.Api>();
+
+            // Set Main Page
             MainPage = new NavigationPage(new StartPage());
 		}
 

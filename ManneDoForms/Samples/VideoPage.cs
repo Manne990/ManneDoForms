@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using ManneDoForms.Common;
 using ManneDoForms.Components.VideoView;
 using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace ManneDoForms.Samples
 {
@@ -38,7 +39,9 @@ namespace ManneDoForms.Samples
             var fileSystem = DependencyService.Get<IFileSystem>();
             if (fileSystem.FileExists(localFilename) == false)
             {
-                await DownloadAndSaveFile(url, localFilename);
+                var api = Resolver.Resolve<IApi>();
+
+                await api.DownloadAndSaveFile(url, localFilename);
             }
 
             var localFilePath = fileSystem.GetFilePath(localFilename);
@@ -48,25 +51,6 @@ namespace ManneDoForms.Samples
             AbsoluteLayout.SetLayoutBounds(videoView, new Rectangle(0f, 0f, 1f, 1f));
 
             _parentContainer.Children.Add(videoView);
-        }
-
-        private async Task DownloadAndSaveFile(string url, string filename)
-        {
-            var httpClient = new HttpClient();
-            var fileSystem = DependencyService.Get<IFileSystem>();
-
-            try
-            {
-                // Download file
-                var streamAsync = await httpClient.GetStreamAsync(url);
-
-                // Save the file
-                fileSystem.SaveBinaryFile(filename, streamAsync);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("Download failed! {0}", ex.Message);
-            }
         }
     }
 }

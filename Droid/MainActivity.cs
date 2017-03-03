@@ -2,6 +2,9 @@
 using Android.Content.PM;
 using Android.OS;
 using ManneDoForms.Droid.Common;
+using TinyIoC;
+using XLabs.Ioc;
+using XLabs.Ioc.TinyIOC;
 
 namespace ManneDoForms.Droid
 {
@@ -12,6 +15,15 @@ namespace ManneDoForms.Droid
 		{
 			base.OnCreate(savedInstanceState);
 
+            // Init IoC Container
+            var container = TinyIoCContainer.Current;
+            var tinyContainer = new TinyContainer(container);
+
+            container.Register<IDependencyContainer>(tinyContainer);
+
+            Resolver.SetResolver(new TinyResolver(container));
+
+            // Init Forms
 			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             Xamarin.Forms.DependencyService.Register<RepeaterViewSample>();
