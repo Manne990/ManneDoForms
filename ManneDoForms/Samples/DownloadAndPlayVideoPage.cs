@@ -1,6 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ManneDoForms.Common;
 using ManneDoForms.Components.VideoView;
 using Xamarin.Forms;
@@ -8,11 +6,11 @@ using XLabs.Ioc;
 
 namespace ManneDoForms.Samples
 {
-    public class VideoPage : ContentPage
+    public class DownloadAndPlayVideoPage : ContentPage
     {
-        private AbsoluteLayout _parentContainer;
+        private readonly AbsoluteLayout _parentContainer;
 
-        public VideoPage()
+        public DownloadAndPlayVideoPage()
         {
             _parentContainer = new AbsoluteLayout()
             {
@@ -33,7 +31,7 @@ namespace ManneDoForms.Samples
 
         private async Task LoadVideo()
         {
-            var url = "http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4";
+            var url = "https://www.w3schools.com/html/mov_bbb.mp4";
             var localFilename = "bunny.mp4";
 
             var fileSystem = DependencyService.Get<IFileSystem>();

@@ -70,17 +70,8 @@ namespace ManneDoForms.Droid.Renderers.VideoView
             // Get the Forms control
             _view = e.NewElement;
 
-            // Check for an URL
-            if (string.IsNullOrWhiteSpace(_view.Url))
-            {
-                return;
-            }
-
             // Init Sizes
             SetVideoDimensions(new Size(710, 400));
-
-            // Get the video dimensions and calculate sizes
-            GetVideoDimensions(_view.Url);
 
             // Create the container
             var layout = new Android.Widget.RelativeLayout(Forms.Context);
@@ -98,20 +89,23 @@ namespace ManneDoForms.Droid.Renderers.VideoView
 
             _videoview.LayoutParameters = videoLayoutParams;
 
-            // Create the Media Controller
-            _controller = new MediaController(Forms.Context, true);
-
-            _videoview.SetMediaController(_controller);
-            _controller.SetMediaPlayer(_videoview);
-            _controller.SetAnchorView(_videoview);
-
             // Set the View View as the native control for this renderer
             layout.AddView(_videoview);
 
             SetNativeControl(layout);
 
-            // Receive Callbacks for the surface
-            _videoview.Holder.AddCallback(this);
+            // Try to play
+            LoadAndPlay();
+        }
+
+        protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+
+            if (e.PropertyName == nameof(ManneVideoView.Url))
+            {
+                LoadAndPlay();
+            }
         }
 
         protected override void OnSizeChanged(int w, int h, int oldw, int oldh)
@@ -139,11 +133,11 @@ namespace ManneDoForms.Droid.Renderers.VideoView
 
         protected override void Dispose(bool disposing)
         {
-            _videoview.StopPlayback();
-            _videoview.Dispose();
+            _videoview?.StopPlayback();
+            _videoview?.Dispose();
             _videoview = null;
 
-            _controller.Dispose();
+            _controller?.Dispose();
             _controller = null;
 
             _view = null;
@@ -154,6 +148,29 @@ namespace ManneDoForms.Droid.Renderers.VideoView
         // ----------------------------------------------
 
         #region Private Methods
+
+        private void LoadAndPlay()
+        {
+            System.Diagnostics.Debug.WriteLine(_view.Url);
+
+            if (string.IsNullOrWhiteSpace(_view.Url))
+            {
+                return;
+            }
+
+            // Get the video dimensions and calculate sizes
+            GetVideoDimensions(_view.Url);
+
+            // Create the Media Controller
+            _controller = new MediaController(Forms.Context, true);
+
+            _videoview.SetMediaController(_controller);
+            _controller.SetMediaPlayer(_videoview);
+            _controller.SetAnchorView(_videoview);
+
+            // Receive Callbacks for the surface
+            _videoview.Holder.AddCallback(this);
+        }
 
         private void SetVideoDimensions(Size videoDimensions)
         {
@@ -207,7 +224,7 @@ namespace ManneDoForms.Droid.Renderers.VideoView
                 SetVideoDimensions(new Size(player.VideoWidth, player.VideoHeight));
             };
 
-            player.SetDataSource(_view.Url);
+            player.SetDataSource(url);
             player.PrepareAsync();
         }
 

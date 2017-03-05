@@ -32,7 +32,7 @@ namespace ManneDoForms.Samples
 
         private void ShowVideoViewer(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new VideoPage());
+            Navigation.PushAsync(new VideoViewerPage());
         }
 
         private void ShowPdfViewer(object sender, System.EventArgs e)

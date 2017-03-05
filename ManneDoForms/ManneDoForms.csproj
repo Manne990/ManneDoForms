@@ -65,7 +65,7 @@
     </Compile>
     <Compile Include="Components\LabelView\ManneLabel.cs" />
     <Compile Include="Components\VideoView\ManneVideoView.cs" />
-    <Compile Include="Samples\VideoPage.cs" />
+    <Compile Include="Samples\DownloadAndPlayVideoPage.cs" />
     <Compile Include="Components\PhotoViewer\Model\BaseViewModel.cs" />
     <Compile Include="Components\PhotoViewer\Model\ImageViewModel.cs" />
     <Compile Include="Components\PhotoViewer\View\CarouselLayout.cs" />
@@ -77,6 +77,10 @@
     <Compile Include="Common\IApi.cs" />
     <Compile Include="Common\Api.cs" />
     <Compile Include="Common\RelativeLayoutExtensions.cs" />
+    <Compile Include="Samples\VideoViewerPage.xaml.cs">
+      <DependentUpon>VideoViewerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\RecordAndPlayVideoPage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -101,6 +105,12 @@
     </Reference>
     <Reference Include="XLabs.Ioc">
       <HintPath>..\packages\XLabs.IoC.2.0.5782\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Media.2.6.2\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media">
+      <HintPath>..\packages\Xam.Plugin.Media.2.6.2\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +149,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Samples\DropDownViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Samples\VideoViewerPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

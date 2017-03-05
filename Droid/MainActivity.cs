@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using ManneDoForms.Droid.Common;
+using Plugin.Permissions;
 using TinyIoC;
 using XLabs.Ioc;
 using XLabs.Ioc.TinyIOC;
@@ -30,5 +31,10 @@ namespace ManneDoForms.Droid
 
 			LoadApplication(new App());
 		}
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
 	}
 }

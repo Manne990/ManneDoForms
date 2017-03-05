@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using Foundation;
 using mTouchPDFReader.Library.Interfaces;
 using mTouchPDFReader.Library.Managers;
@@ -36,6 +37,10 @@ namespace ManneDoForms.iOS
 
             MgrAccessor.Initialize(builder);
 
+            // Print out path to the documents folder
+            System.Diagnostics.Debug.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+
+            // Return...
 			return base.FinishedLaunching(uiApplication, launchOptions);
 		}
 	}

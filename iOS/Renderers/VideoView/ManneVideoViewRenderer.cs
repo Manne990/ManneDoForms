@@ -4,7 +4,6 @@ using ManneDoForms.iOS.Renderers.VideoView;
 using MediaPlayer;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
-using XamarinForms = Xamarin.Forms;
 
 [assembly: ExportRenderer(typeof(ManneVideoView), typeof(ManneVideoViewRenderer))]
 namespace ManneDoForms.iOS.Renderers.VideoView
@@ -35,40 +34,74 @@ namespace ManneDoForms.iOS.Renderers.VideoView
             // Get the forms view
             _view = (ManneVideoView)e.NewElement;
 
-            // Check if we have an URL
-            if (string.IsNullOrWhiteSpace(_view.Url))
-            {
-                return;
-            }
-
             // Create the movie player controller
-            _controller = new MPMoviePlayerController(Foundation.NSUrl.FromString(_view.Url));
+            _controller = new MPMoviePlayerController();
 
             // Create the native view
             SetNativeControl(_controller.View);
 
-            // Play the movie
-            _controller.Play();
+            // Try to play
+            LoadAndPlay();
         }
 
         protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName == "Size")
+            if (e.PropertyName == nameof(ManneVideoView.Size))
             {
-                Control.Superview.Frame = new CGRect(this.Control.Superview.Frame.X, this.Control.Superview.Frame.Y, _view.Size.Width, _view.Size.Height);
+                if (Control == null)
+                {
+                    return;
+                }
+
+                Control.Superview.Frame = new CGRect(Control.Superview.Frame.X, Control.Superview.Frame.Y, _view.Size.Width, _view.Size.Height);
+            }
+
+            if (e.PropertyName == nameof(ManneVideoView.Url))
+            {
+                LoadAndPlay();
             }
         }
 
         protected override void Dispose(bool disposing)
         {
             // Dispose all components
-            _controller.Stop();
-            _controller.Dispose();
+            _controller?.Stop();
+            _controller?.Dispose();
             _controller = null;
 
             base.Dispose(disposing);
+        }
+
+        #endregion
+
+        // ----------------------------------------------
+
+        #region Private Methods
+
+        private void LoadAndPlay()
+        {
+            // Check the URL
+            if (string.IsNullOrWhiteSpace(_view.Url))
+            {
+                return;
+            }
+
+            var url = string.Empty;
+            if (_view.Url.StartsWith("file://", System.StringComparison.CurrentCulture) == false)
+            {
+                url = $"file://{_view.Url}";
+            }
+            else
+            {
+                url = _view.Url;
+            }
+
+            // Play the movie
+            _controller.ContentUrl = Foundation.NSUrl.FromString(url);
+            _controller.PrepareToPlay();
+            _controller.Play();
         }
 
         #endregion

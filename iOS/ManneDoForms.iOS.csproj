@@ -98,6 +98,12 @@
     <Reference Include="XLabs.Ioc.TinyIOC.iOS">
       <HintPath>..\packages\XLabs.IoC.TinyIoC.2.0.5782\lib\Xamarin.iOS10\XLabs.Ioc.TinyIOC.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Media.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Media.2.6.2\lib\Xamarin.iOS10\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media">
+      <HintPath>..\packages\Xam.Plugin.Media.2.6.2\lib\Xamarin.iOS10\Plugin.Media.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ManneDoForms\ManneDoForms.csproj">
