@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
-using UIKit;
+﻿using UIKit;
 
 namespace ManneDoForms.iOS
 {
-	public class Application
+    public class Application
 	{
 		// This is the main entry point of the application.
 		static void Main(string[] args)
@@ -18,4 +13,3 @@ namespace ManneDoForms.iOS
 		}
 	}
 }
-

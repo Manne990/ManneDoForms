@@ -11,7 +11,7 @@ using XLabs.Ioc.TinyIOC;
 namespace ManneDoForms.iOS
 {
     [Register("AppDelegate")]
-	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+	public class AppDelegate : Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
 	{
 		public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
 		{
@@ -24,7 +24,7 @@ namespace ManneDoForms.iOS
             Resolver.SetResolver(new TinyResolver(container));
 
             // Init Forms
-			global::Xamarin.Forms.Forms.Init();
+            Xamarin.Forms.Forms.Init();
 
 			LoadApplication(new App());
 

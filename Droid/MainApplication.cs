@@ -1,26 +1,27 @@
 using System;
-
 using Android.App;
 using Android.OS;
 using Android.Runtime;
+using ManneDoForms.Droid.Common;
 using Plugin.CurrentActivity;
 
 namespace ManneDoForms.Droid
 {
-	//You can specify additional application information in this attribute
     [Application]
     public class MainApplication : Application, Application.IActivityLifecycleCallbacks
     {
-        public MainApplication(IntPtr handle, JniHandleOwnership transer)
-          :base(handle, transer)
+        public MainApplication(IntPtr handle, JniHandleOwnership transer) :base(handle, transer)
         {
         }
 
         public override void OnCreate()
         {
             base.OnCreate();
+
             RegisterActivityLifecycleCallbacks(this);
-            //A great place to initialize Xamarin.Insights and Dependency Services!
+
+            // Init RepeaterViewSample
+            Xamarin.Forms.DependencyService.Register<RepeaterViewSample>();
         }
 
         public override void OnTerminate()
