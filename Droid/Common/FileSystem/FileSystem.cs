@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using ManneDoForms.Common;
+using ManneDoForms.Common.Filesystem;
 using ManneDoForms.Droid.Common.FileSystem;
 
 [assembly: Xamarin.Forms.Dependency(typeof(FileSystem))]

@@ -1,7 +1,7 @@
 ﻿using Foundation;
 using System.IO;
 using ManneDoForms.iOS.Common.FileSystem;
-using ManneDoForms.Common;
+using ManneDoForms.Common.Filesystem;
 
 [assembly: Xamarin.Forms.Dependency(typeof(FileSystem))]
 namespace ManneDoForms.iOS.Common.FileSystem

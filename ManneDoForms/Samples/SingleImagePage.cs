@@ -1,10 +1,10 @@
 ﻿using System;
 using Xamarin.Forms;
 using System.Threading.Tasks;
-using System.Net.Http;
-using ManneDoForms.Common;
 using ManneDoForms.Components.PhotoViewer.View;
 using XLabs.Ioc;
+using ManneDoForms.Common.Filesystem;
+using ManneDoForms.Common.Api;
 
 namespace ManneDoForms.Samples
 {

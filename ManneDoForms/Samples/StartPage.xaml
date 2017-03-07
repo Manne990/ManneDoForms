@@ -1,19 +1,22 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
 		xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		x:Class="ManneDoForms.Samples.StartPage"
 		Title="Manne Do Forms">
 	<ContentPage.Content>
-		<StackLayout>
-			<Button Text="PaintView" Clicked="ShowPaintView" />
-			<Button Text="RangeSliderView" Clicked="ShowRangeSliderView" />
-			<Button Text="TableView" Clicked="ShowTableView" />
-			<Button Text="PhotoViewer" Clicked="ShowPhotoViewer" />
-			<Button Text="VideoViewer" Clicked="ShowVideoViewer" />
-			<Button Text="PdfViewer" Clicked="ShowPdfViewer" />
-			<Button Text="DropDownView" Clicked="ShowDropDown" />
-			<Button Text="RepeaterView (Android)" Clicked="ShowRepeaterView" />
-		</StackLayout>
+		<ScrollView>
+			<StackLayout>
+				<Button Text="PaintView" Clicked="ShowPaintView" />
+				<Button Text="RangeSliderView" Clicked="ShowRangeSliderView" />
+				<Button Text="TableView" Clicked="ShowTableView" />
+				<Button Text="PhotoViewer" Clicked="ShowPhotoViewer" />
+				<Button Text="VideoViewer" Clicked="ShowVideoViewer" />
+				<Button Text="PdfViewer" Clicked="ShowPdfViewer" />
+				<Button Text="DropDownView" Clicked="ShowDropDown" />
+				<Button Text="Validation" Clicked="ShowFormWithValidation" />
+				<Button Text="RepeaterView (Android)" Clicked="ShowRepeaterView" />
+			</StackLayout>
+		</ScrollView>
 	</ContentPage.Content>
 </ContentPage>

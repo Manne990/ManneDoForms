@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
-using ManneDoForms.Common;
+using ManneDoForms.Common.Event;
 using Xamarin.Forms;
 
 namespace ManneDoForms.Components.TableView
 {
-	public class ManneTableView<T> : Grid
+    public class ManneTableView<T> : Grid
 	{
 		#region Overrides
 

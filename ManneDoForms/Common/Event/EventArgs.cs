@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ManneDoForms.Common
+namespace ManneDoForms.Common.Event
 {
 	public class EventArgs<T> : EventArgs
 	{

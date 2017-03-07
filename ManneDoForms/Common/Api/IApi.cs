@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace ManneDoForms.Common
+namespace ManneDoForms.Common.Api
 {
     public interface IApi
     {

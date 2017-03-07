@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace ManneDoForms.Common
+namespace ManneDoForms.Common.Filesystem
 {
     public interface IFileSystem
     {

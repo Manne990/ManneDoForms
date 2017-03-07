@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
 using Java.Lang;
-using ManneDoForms.Common;
+using ManneDoForms.Common.Sample;
 using ManneDoForms.Droid.Common;
 using ManneDoForms.Droid.Samples;
 

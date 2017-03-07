@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using ManneDoForms.Common.Filesystem;
 using Xamarin.Forms;
 
-namespace ManneDoForms.Common
+namespace ManneDoForms.Common.Api
 {
     public class Api : IApi
     {

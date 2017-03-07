@@ -1,4 +1,4 @@
-﻿using ManneDoForms.Common;
+﻿using ManneDoForms.Common.Sample;
 using Xamarin.Forms;
 
 namespace ManneDoForms.Samples
@@ -43,6 +43,11 @@ namespace ManneDoForms.Samples
         private void ShowDropDown(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new DropDownViewPage());
+        }
+
+        private void ShowFormWithValidation(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new FormWithValidationPage());
         }
 
         private void ShowRepeaterView(object sender, System.EventArgs e)

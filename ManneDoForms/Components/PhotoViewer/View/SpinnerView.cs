@@ -1,4 +1,4 @@
-﻿using ManneDoForms.Common;
+﻿using ManneDoForms.Common.Extension;
 using Xamarin.Forms;
 
 namespace ManneDoForms.Components.PhotoViewer.View

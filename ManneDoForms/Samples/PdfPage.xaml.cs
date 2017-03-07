@@ -1,7 +1,6 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using ManneDoForms.Common;
+﻿using System.Threading.Tasks;
+using ManneDoForms.Common.Api;
+using ManneDoForms.Common.Filesystem;
 using Xamarin.Forms;
 using XLabs.Ioc;
 

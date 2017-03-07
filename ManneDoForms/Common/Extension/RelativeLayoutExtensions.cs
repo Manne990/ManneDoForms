@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace ManneDoForms.Common
+namespace ManneDoForms.Common.Extension
 {
     public static class RelativeLayoutExtensions
     {

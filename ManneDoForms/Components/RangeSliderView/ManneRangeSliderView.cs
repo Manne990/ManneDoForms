@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-using ManneDoForms.Common;
+using ManneDoForms.Common.Event;
 using Xamarin.Forms;
 
 namespace ManneDoForms.Components.RangeSliderView

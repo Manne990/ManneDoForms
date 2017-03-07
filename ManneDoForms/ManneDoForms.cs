@@ -11,7 +11,7 @@ namespace ManneDoForms
             // Register services in IoC Container
             var container = Resolver.Resolve<IDependencyContainer>();
 
-            container.RegisterSingle<Common.IApi, Common.Api>();
+            container.RegisterSingle<Common.Api.IApi, Common.Api.Api>();
 
             // Set Main Page
             MainPage = new NavigationPage(new StartPage());

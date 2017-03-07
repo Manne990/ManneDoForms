@@ -1,4 +1,4 @@
-﻿namespace ManneDoForms.Common
+﻿namespace ManneDoForms.Common.Sample
 {
     public interface IRepeaterViewSample
     {

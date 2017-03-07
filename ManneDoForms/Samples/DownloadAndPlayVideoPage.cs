@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
-using ManneDoForms.Common;
+using ManneDoForms.Common.Api;
+using ManneDoForms.Common.Filesystem;
 using ManneDoForms.Components.VideoView;
 using Xamarin.Forms;
 using XLabs.Ioc;
