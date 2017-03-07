@@ -9,6 +9,7 @@ ImageViewer - Browse images in a slide show
 VideoViewer - Download and play videos or stream from URL  
 PdfView - View PDF documents (in-app on iOS and with intent on Android)  
 DropDownView - Drop down for selecting from a collection of strings  
+Form Validation - Bindable and flexible form validation engine with an MVVM pattern  
   
 Xamarin Android  
 RepeaterView - Repeats items from a collection using an adapter pattern  
