@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq.Expressions;
+using GalaSoft.MvvmLight;
 
 namespace ManneDoForms.Common.Validation
 {
-    public class ValidableProperty<T> where T : class
+    public class ValidableProperty<T> : ViewModelBase where T : class
     {
         // Private Members
         private readonly List<ValidationExpression<T>> _expressions;
@@ -13,10 +15,49 @@ namespace ManneDoForms.Common.Validation
         // ------------------------------------------------------
 
         // Public Properties
-        public T Value { get; set; }
-        public string Hint { get; set; }
-        public bool IsValid { get; private set; }
-        public List<string> ErrorMessages { get; private set; }
+        private T _value;
+        public T Value
+        {
+            get { return _value; }
+            set
+            {
+                _value = value;
+                RaisePropertyChanged(() => Value);
+            }
+        }
+
+        private string _hint;
+        public string Hint
+        {
+            get { return _hint; }
+            set
+            {
+                _hint = value;
+                RaisePropertyChanged(() => Hint);
+            }
+        }
+
+        private bool _isValid;
+        public bool IsValid
+        {
+            get { return _isValid; }
+            private set
+            {
+                _isValid = value;
+                RaisePropertyChanged(() => IsValid);
+            }
+        }
+
+        private ObservableCollection<string> _errorMessages;
+        public ObservableCollection<string> ErrorMessages
+        {
+            get { return _errorMessages; }
+            private set
+            {
+                _errorMessages = value;
+                RaisePropertyChanged(() => ErrorMessages);
+            }
+        }
 
 
         // ------------------------------------------------------
@@ -24,7 +65,7 @@ namespace ManneDoForms.Common.Validation
         // Constructors
         public ValidableProperty()
         {
-            ErrorMessages = new List<string>();
+            ErrorMessages = new ObservableCollection<string>();
             _expressions = new List<ValidationExpression<T>>();
             IsValid = true;
         }
@@ -38,9 +79,14 @@ namespace ManneDoForms.Common.Validation
             _expressions.Add(new ValidationExpression<T> { Expression = expression, ErrorMessage = errorMessage });
         }
 
+        public void ClearExpressions()
+        {
+            _expressions.Clear();
+        }
+
         public void Validate()
         {
-            ErrorMessages = new List<string>();
+            ErrorMessages = new ObservableCollection<string>();
 
             try
             {
