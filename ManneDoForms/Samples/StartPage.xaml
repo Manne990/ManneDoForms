@@ -14,7 +14,7 @@
 				<Button Text="VideoViewer" Clicked="ShowVideoViewer" />
 				<Button Text="PdfViewer" Clicked="ShowPdfViewer" />
 				<Button Text="DropDownView" Clicked="ShowDropDown" />
-				<Button Text="Validation" Clicked="ShowFormWithValidation" />
+				<Button Text="Form Validation" Clicked="ShowFormWithValidation" />
 				<Button Text="RepeaterView (Android)" Clicked="ShowRepeaterView" />
 			</StackLayout>
 		</ScrollView>

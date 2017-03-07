@@ -1,33 +1,47 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using ManneDoForms.Common.Validation;
 using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace ManneDoForms.Samples
 {
     public partial class FormWithValidationPage : ContentPage
     {
-        private FormWithValidationViewModel _viewModel;
-
         public FormWithValidationPage()
         {
             InitializeComponent();
 
-            _viewModel = new FormWithValidationViewModel();
-            BindingContext = _viewModel;
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            _viewModel.Load();
+            BindingContext = Resolver.Resolve<IFormWithValidationViewModel>();
         }
     }
 
-    public class FormWithValidationViewModel : ViewModelBase
+    public interface IFormWithValidationViewModel
     {
+        ValidableProperty<string> FirstName { get; set; }
+        ValidableProperty<string> LastName { get; set; }
+
+        RelayCommand SaveCommand { get; }
+    }
+
+    public class FormWithValidationViewModel : ViewModelBase, IFormWithValidationViewModel
+    {
+        public FormWithValidationViewModel()
+        {
+            ValidationErrors = new ObservableCollection<string>();
+
+            FirstName = new ValidableProperty<string>();
+            FirstName.AddExpression(ValidationRuleFactory.StringMandatoryValidationRule, "First name is mandatory");
+
+            LastName = new ValidableProperty<string> { Hint = "optional" };
+
+            DateOfBirth = new ValidableProperty<string> { Hint = "yyyy-mm-dd" };
+            DateOfBirth.AddExpression(ValidationRuleFactory.StringMandatoryValidationRule, "Date of birth is mandatory");
+            DateOfBirth.AddExpression(ValidationRuleFactory.DateOfBirthValidationRule, "Date of birth must be in format: yyyy-mm-dd");
+        }
+
         private ValidableProperty<string> _firstName;
         public ValidableProperty<string> FirstName
         {
@@ -50,6 +64,28 @@ namespace ManneDoForms.Samples
             }
         }
 
+        private ValidableProperty<string> _dateOfBirth;
+        public ValidableProperty<string> DateOfBirth
+        {
+            get { return _dateOfBirth; }
+            set
+            {
+                _dateOfBirth = value;
+                RaisePropertyChanged(() => DateOfBirth);
+            }
+        }
+
+        private ObservableCollection<string> _validationErrors;
+        public ObservableCollection<string> ValidationErrors
+        {
+            get { return _validationErrors; }
+            set
+            {
+                _validationErrors = value;
+                RaisePropertyChanged(() => ValidationErrors);
+            }
+        }
+
         private RelayCommand _saveCommand;
         public RelayCommand SaveCommand
         {
@@ -59,12 +95,14 @@ namespace ManneDoForms.Samples
                 {
                     _saveCommand = new RelayCommand(async () =>
                     {
-                        if (Validate() == false)
+                        if (ValidateForm() == false)
                         {
                             return;
                         }
 
-                        await Task.Delay(1000); //REMARK: Simulate that something happens... :-)
+                        System.Diagnostics.Debug.WriteLine("Valid -> Save!");
+
+                        await Task.Delay(200); //REMARK: Simulate that something happens... :-)
                     });
                 }
 
@@ -72,21 +110,40 @@ namespace ManneDoForms.Samples
             }
         }
 
-        public void Load()
+        private bool ValidateForm()
         {
-            FirstName = new ValidableProperty<string>(ValidationRuleFactory.StringMandatoryValidationRule, string.Empty);
-            LastName = new ValidableProperty<string>(ValidationRuleFactory.StringMandatoryValidationRule, string.Empty);
-        }
+            // Init
+            ValidationErrors = new ObservableCollection<string>();
 
-        private bool Validate()
-        {
+            // First Name
             FirstName.Validate();
             RaisePropertyChanged(() => FirstName);
 
+            foreach (var message in FirstName.ErrorMessages)
+            {
+                ValidationErrors.Add(message);
+            }
+
+            // Last Name
             LastName.Validate();
             RaisePropertyChanged(() => LastName);
 
-            return FirstName.IsValid && LastName.IsValid;
+            foreach (var message in LastName.ErrorMessages)
+            {
+                ValidationErrors.Add(message);
+            }
+
+            // Date of Birth
+            DateOfBirth.Validate();
+            RaisePropertyChanged(() => DateOfBirth);
+
+            foreach (var message in DateOfBirth.ErrorMessages)
+            {
+                ValidationErrors.Add(message);
+            }
+
+            // Return...
+            return FirstName.IsValid && LastName.IsValid && DateOfBirth.IsValid;
         }
     }
 }

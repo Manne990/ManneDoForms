@@ -12,6 +12,7 @@ namespace ManneDoForms
             var container = Resolver.Resolve<IDependencyContainer>();
 
             container.RegisterSingle<Common.Api.IApi, Common.Api.Api>();
+            container.RegisterSingle<IFormWithValidationViewModel, FormWithValidationViewModel>();
 
             // Set Main Page
             MainPage = new NavigationPage(new StartPage());
