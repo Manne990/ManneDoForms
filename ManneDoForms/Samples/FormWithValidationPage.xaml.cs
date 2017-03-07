@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using ManneDoForms.Common.Validation;
@@ -23,6 +22,9 @@ namespace ManneDoForms.Samples
     {
         ValidableProperty<string> FirstName { get; set; }
         ValidableProperty<string> LastName { get; set; }
+        ValidableProperty<string> DateOfBirth { get; set; }
+
+        ObservableCollection<string> ValidationErrors { get; set; }
 
         RelayCommand SaveCommand { get; }
     }
@@ -34,7 +36,7 @@ namespace ManneDoForms.Samples
             // Init
             ValidationErrors = new ObservableCollection<string>();
 
-            // Create Properties
+            // Create Properties and Add Validation Rules
             FirstName = new ValidableProperty<string>();
             FirstName.AddExpression(ValidationRuleFactory.StringMandatoryValidationRule, "First name is mandatory");
 
@@ -96,45 +98,38 @@ namespace ManneDoForms.Samples
             {
                 if (_saveCommand == null)
                 {
-                    _saveCommand = new RelayCommand(async () =>
-                    {
-                        if (ValidateForm() == false)
-                        {
-                            System.Diagnostics.Debug.WriteLine("Not valid!");
-                            return;
-                        }
-
-                        System.Diagnostics.Debug.WriteLine("Valid!");
-
-                        System.Diagnostics.Debug.WriteLine($"First name: {FirstName.Value}");
-                        System.Diagnostics.Debug.WriteLine($"Last name: {LastName.Value}");
-                        System.Diagnostics.Debug.WriteLine($"Date of birth: {DateOfBirth.Value}");
-
-                        await Task.Delay(200); //REMARK: Simulate that something happens... :-)
-                    });
+                    _saveCommand = new RelayCommand(SaveForm);
                 }
 
                 return _saveCommand;
             }
         }
 
+        private void SaveForm()
+        {
+            if (ValidateForm() == false)
+            {
+                return;
+            }
+
+            System.Diagnostics.Debug.WriteLine($"First name: {FirstName.Value}");
+            System.Diagnostics.Debug.WriteLine($"Last name: {LastName.Value}");
+            System.Diagnostics.Debug.WriteLine($"Date of birth: {DateOfBirth.Value}");
+        }
+
         private bool ValidateForm()
         {
             var validationErrors = new List<string>();
 
-            // First Name
             FirstName.Validate();
             validationErrors.AddRange(FirstName.ErrorMessages);
 
-            // Last Name
             LastName.Validate();
             validationErrors.AddRange(LastName.ErrorMessages);
 
-            // Date of Birth
             DateOfBirth.Validate();
             validationErrors.AddRange(DateOfBirth.ErrorMessages);
 
-            // Finish
             ValidationErrors = new ObservableCollection<string>(validationErrors);
 
             return FirstName.IsValid && LastName.IsValid && DateOfBirth.IsValid;
