@@ -38,13 +38,15 @@ namespace ManneDoForms.Samples
 
             // Create Properties and Add Validation Rules
             FirstName = new ValidableProperty<string>();
-            FirstName.AddExpression(ValidationRuleFactory.StringMandatoryValidationRule, "First name is mandatory");
+            FirstName.AddRule(ValidationExpressions.StringMandatory, "First name is mandatory");
+            FirstName.AddRule(ValidationExpressions.StringMinLength2, "First name must be at least 2 characters long");
 
             LastName = new ValidableProperty<string> { Hint = "optional" };
+            LastName.AddRule(ValidationExpressions.StringMinLength2, "Last name must be at least 2 characters long");
 
             DateOfBirth = new ValidableProperty<string> { Hint = "yyyy-mm-dd" };
-            DateOfBirth.AddExpression(ValidationRuleFactory.StringMandatoryValidationRule, "Date of birth is mandatory");
-            DateOfBirth.AddExpression(ValidationRuleFactory.DateOfBirthValidationRule, "Date of birth must be in format: yyyy-mm-dd");
+            DateOfBirth.AddRule(ValidationExpressions.StringMandatory, "Date of birth is mandatory");
+            DateOfBirth.AddRule(ValidationExpressions.SwedishDateFormat, "Date of birth must be in format: yyyy-mm-dd");
         }
 
         private ValidableProperty<string> _firstName;

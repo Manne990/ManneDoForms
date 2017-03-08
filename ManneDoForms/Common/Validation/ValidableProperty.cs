@@ -9,7 +9,7 @@ namespace ManneDoForms.Common.Validation
     public class ValidableProperty<T> : ViewModelBase where T : class
     {
         // Private Members
-        private readonly List<ValidationExpression<T>> _expressions;
+        private readonly List<ValidationRule<T>> _rules;
 
 
         // ------------------------------------------------------
@@ -66,7 +66,7 @@ namespace ManneDoForms.Common.Validation
         public ValidableProperty()
         {
             ErrorMessages = new ObservableCollection<string>();
-            _expressions = new List<ValidationExpression<T>>();
+            _rules = new List<ValidationRule<T>>();
             IsValid = true;
         }
 
@@ -74,14 +74,14 @@ namespace ManneDoForms.Common.Validation
         // ------------------------------------------------------
 
         // Public Methods
-        public void AddExpression(Expression<Func<T, bool>> expression, string errorMessage)
+        public void AddRule(Expression<Func<T, bool>> expression, string errorMessage)
         {
-            _expressions.Add(new ValidationExpression<T> { Expression = expression, ErrorMessage = errorMessage });
+            _rules?.Add(new ValidationRule<T> { Expression = expression, ErrorMessage = errorMessage });
         }
 
-        public void ClearExpressions()
+        public void ClearRules()
         {
-            _expressions.Clear();
+            _rules?.Clear();
         }
 
         public void Validate()
@@ -90,27 +90,26 @@ namespace ManneDoForms.Common.Validation
 
             try
             {
-                foreach (var expression in _expressions)
+                foreach (var rule in _rules)
                 {
-                    var f = expression.Expression.Compile();
+                    var f = rule.Expression.Compile();
 
                     if (f.Invoke(Value) == false)
                     {
-                        ErrorMessages.Add(expression.ErrorMessage);
+                        ErrorMessages.Add(rule.ErrorMessage);
                     }
                 }
 
                 IsValid = ErrorMessages.Count == 0;
             }
-            catch (Exception ex)
+            catch
             {
-                System.Diagnostics.Debug.WriteLine("ValidableProperty - Error while executing validation expression: {0}", ex.Message);
                 IsValid = false;
             }
         }
     }
 
-    public class ValidationExpression<T> where T : class
+    public class ValidationRule<T> where T : class
     { 
         public Expression<Func<T, bool>> Expression { get; set; }
         public string ErrorMessage { get; set; }

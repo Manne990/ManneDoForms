@@ -82,7 +82,7 @@
     <Compile Include="Common\Extension\RelativeLayoutExtensions.cs" />
     <Compile Include="Common\Sample\IRepeaterViewSample.cs" />
     <Compile Include="Common\Validation\ValidableProperty.cs" />
-    <Compile Include="Common\Validation\ValidationRuleFactory.cs" />
+    <Compile Include="Common\Validation\ValidationExpressions.cs" />
     <Compile Include="Samples\FormWithValidationPage.xaml.cs">
       <DependentUpon>FormWithValidationPage.xaml</DependentUpon>
     </Compile>
