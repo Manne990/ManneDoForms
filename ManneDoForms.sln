@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManneDoForms.iOS", "iOS\Man
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManneDoForms.Droid", "Droid\ManneDoForms.Droid.csproj", "{4C854B93-AC3B-4466-A94C-4A88908C7588}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependencies", "dependencies", "{CC0E8CEC-036F-40C3-BBB2-2645C3548F4F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{CC0E8CEC-036F-40C3-BBB2-2645C3548F4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mTouchPDFReaderLibrary", "dependencies\mTouchPDFReader\mTouchPDFReaderLibrary.csproj", "{9DAD0158-D923-48BF-BC35-1014C00B7C95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{AA297715-51C1-4DD4-8F59-6E804B670E1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
