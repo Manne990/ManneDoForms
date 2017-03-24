@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rotation:RotationAwarePage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:rotation="clr-namespace:ManneDoForms.Common.Rotation;;assembly=ManneDoForms" 
+	x:Class="ManneDoForms.Samples.RotationPortraitOnlyPage"
+	Title="Portrait Only">
+	<ContentPage.Content>
+		<Label Text="Page Supports Portrait Only" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+	</ContentPage.Content>
+</rotation:RotationAwarePage>

@@ -50,6 +50,11 @@ namespace ManneDoForms.Samples
             Navigation.PushAsync(new FormWithValidationPage());
         }
 
+        private void ShowRotation(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new RotationPage());
+        }
+
         private void ShowRepeaterView(object sender, System.EventArgs e)
         {
             if (Device.OS != TargetPlatform.Android)

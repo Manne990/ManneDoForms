@@ -15,6 +15,7 @@
 				<Button Text="PdfViewer" Clicked="ShowPdfViewer" />
 				<Button Text="DropDownView" Clicked="ShowDropDown" />
 				<Button Text="Form Validation" Clicked="ShowFormWithValidation" />
+				<Button Text="Page Rotation" Clicked="ShowRotation" />
 				<Button Text="RepeaterView (Android)" Clicked="ShowRepeaterView" />
 			</StackLayout>
 		</ScrollView>

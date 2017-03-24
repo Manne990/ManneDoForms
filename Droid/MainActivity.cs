@@ -1,8 +1,10 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using ManneDoForms.Common.Rotation;
 using Plugin.Permissions;
 using TinyIoC;
+using Xamarin.Forms;
 using XLabs.Ioc;
 using XLabs.Ioc.TinyIOC;
 
@@ -24,7 +26,13 @@ namespace ManneDoForms.Droid
             Resolver.SetResolver(new TinyResolver(container));
 
             // Init Forms
-            Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Forms.Init(this, savedInstanceState);
+
+            // Handle Device Rotation
+            MessagingCenter.Subscribe<RotationAwarePage, InterfaceOrientationTypes>(this, RotationAwarePage.NewPageOrientationRequestedMessage, NewOrientationRequested);
+
+            // Set default orientation
+            RequestedOrientation = ScreenOrientation.Portrait;
 
             // Load App
             LoadApplication(new App());
@@ -33,6 +41,31 @@ namespace ManneDoForms.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        private void NewOrientationRequested(object sender, InterfaceOrientationTypes arg)
+        {
+            RequestedOrientation = MapOrientation(arg);
+        }
+
+        private ScreenOrientation MapOrientation(InterfaceOrientationTypes orientation)
+        {
+            switch (orientation)
+            {
+                case InterfaceOrientationTypes.All:
+                    return ScreenOrientation.FullSensor;
+
+                case InterfaceOrientationTypes.AllButUpsideDown:
+                    return ScreenOrientation.FullSensor;
+
+                case InterfaceOrientationTypes.Portrait:
+                    return ScreenOrientation.Portrait;
+
+                case InterfaceOrientationTypes.Landscape:
+                    return ScreenOrientation.Landscape;
+            }
+
+            return ScreenOrientation.Portrait;
         }
     }
 }
