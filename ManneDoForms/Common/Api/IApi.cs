@@ -5,5 +5,6 @@ namespace ManneDoForms.Common.Api
     public interface IApi
     {
         Task DownloadAndSaveFile(string url, string filename);
+        Task<byte[]> DownloadFile(string url);
     }
 }

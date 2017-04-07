@@ -14,6 +14,7 @@
 				<Button Text="VideoViewer" Clicked="ShowVideoViewer" />
 				<Button Text="PdfViewer" Clicked="ShowPdfViewer" />
 				<Button Text="DropDownView" Clicked="ShowDropDown" />
+				<Button Text="ImageView" Clicked="ShowImageView" />
 				<Button Text="Form Validation" Clicked="ShowFormWithValidation" />
 				<Button Text="Page Rotation" Clicked="ShowRotation" />
 				<Button Text="RepeaterView (Android)" Clicked="ShowRepeaterView" />

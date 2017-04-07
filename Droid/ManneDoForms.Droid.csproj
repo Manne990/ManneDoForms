@@ -182,6 +182,7 @@
     <Compile Include="Renderers\LabelView\ManneLabelRenderer.cs" />
     <Compile Include="Renderers\VideoView\ManneVideoViewRenderer.cs" />
     <Compile Include="MainApplication.cs" />
+    <Compile Include="Renderers\ImageView\ManneImageViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -205,6 +206,7 @@
     <Folder Include="Renderers\DropDownView\" />
     <Folder Include="Renderers\LabelView\" />
     <Folder Include="Renderers\VideoView\" />
+    <Folder Include="Renderers\ImageView\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />

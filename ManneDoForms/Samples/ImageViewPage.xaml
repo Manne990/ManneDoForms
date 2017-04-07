@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:component="clr-namespace:ManneDoForms.Components.ImageView;assembly=ManneDoForms" 
+	x:Class="ManneDoForms.Samples.ImageViewPage"
+	Title="ImageView">
+	<ContentPage.Content>
+		<ListView
+			RowHeight="300"
+			ItemsSource="{Binding DummyItems}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<AbsoluteLayout>
+							<component:ManneImageView
+								x:Name="imageView"
+								Source="{Binding .}"
+								ScaleType="ScaleToFit"
+								AbsoluteLayout.LayoutFlags="All"
+								AbsoluteLayout.LayoutBounds="0,0,1,1" />
+							<ActivityIndicator 
+								IsRunning="{Binding Source={x:Reference Name=imageView}, Path=IsBusy}"
+								IsVisible="{Binding Source={x:Reference Name=imageView}, Path=IsBusy}"
+								AbsoluteLayout.LayoutFlags="All"
+								AbsoluteLayout.LayoutBounds="0,0,1,1" />
+						</AbsoluteLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 using ManneDoForms.Common.Filesystem;
 using ManneDoForms.Droid.Common.FileSystem;
 
@@ -9,24 +11,29 @@ namespace ManneDoForms.Droid.Common.FileSystem
     {
         public bool FileExists(string fileName)
         {
-            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName);
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), fileName);
 
             return File.Exists(path);
         }
 
-        public bool SaveBinaryFile(string fileName, Stream data)
+        public void SaveBinaryFile(string fileName, Stream data, bool flagAsNotBackup = true)
         {
             var context = Android.App.Application.Context;
             Stream stream = context.OpenFileOutput(fileName, Android.Content.FileCreationMode.Private);
 
-            return SaveBinaryResource(stream, data);
+            SaveBinaryResource(stream, data);
+        }
+
+        public void SaveBinaryFile(string fileName, byte[] data, bool flagAsNotBackup = true)
+        {
+        	throw new NotImplementedException();
         }
 
         public byte[] LoadBinary(string fileName)
         {
             try
             {
-                return File.ReadAllBytes(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName));
+                return File.ReadAllBytes(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), fileName));
             }
             catch
             {
@@ -34,18 +41,21 @@ namespace ManneDoForms.Droid.Common.FileSystem
             }
         }
 
-        public string GetFilePath(string fileName)
+        public Task<byte[]> LoadBinaryAsync(string fileName, bool fullPath = false)
         {
-            return Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName);
+        	throw new NotImplementedException();
         }
 
-        private bool SaveBinaryResource(Stream stream, Stream data)
+        public string GetFilePath(string fileName)
+        {
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), fileName);
+        }
+
+        private void SaveBinaryResource(Stream stream, Stream data)
         {
             data.CopyTo(stream);
 
             stream.Close();
-
-            return true;
         }
     }
 }

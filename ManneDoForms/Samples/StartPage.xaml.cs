@@ -45,6 +45,11 @@ namespace ManneDoForms.Samples
             Navigation.PushAsync(new DropDownViewPage());
         }
 
+        private void ShowImageView(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new ImageViewPage());
+        }
+
         private void ShowFormWithValidation(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new FormWithValidationPage());
