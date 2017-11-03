@@ -55,9 +55,14 @@ namespace ManneDoForms.Samples
             Navigation.PushAsync(new RotationPage());
         }
 
+        private void ShowProgressAndSpinner(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new ProgressAndSpinnerPage());
+        }
+
         private void ShowRepeaterView(object sender, System.EventArgs e)
         {
-            if (Device.OS != TargetPlatform.Android)
+            if (Device.RuntimePlatform != Device.Android)
             {
                 DisplayAlert("Not Available", "This is only for Android.", "Ok");
                 return;

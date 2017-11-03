@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:spinner="clr-namespace:ManneDoForms.Components.ProgressAndSpinner;assembly=ManneDoForms"
+    x:Class="ManneDoForms.Samples.ProgressAndSpinnerPage">
+	<ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="Black">
+            <spinner:CircularProgressLayout 
+                Source="loader_white.png" 
+                Text="{Binding LoadingText}" 
+                LabelFontFamily="HelveticaNeueLTStd-BdCn"
+                TextColor="White" 
+                IsBusy="true"
+                AbsoluteLayout.LayoutBounds="0.5,0.25,81,81" 
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <spinner:CircularProgressLayout 
+                x:Name="progress"
+                Source="loader_white.png" 
+                Text="{Binding LoadingText}" 
+                LabelFontFamily="HelveticaNeueLTStd-BdCn"
+                ProgressLowerThreshold="0"
+                TextColor="White" 
+                AbsoluteLayout.LayoutBounds="0.5,0.75,81,81" 
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+        </AbsoluteLayout>
+	</ContentPage.Content>
+</ContentPage>
