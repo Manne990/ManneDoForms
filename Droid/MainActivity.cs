@@ -10,11 +10,14 @@ using XLabs.Ioc.TinyIOC;
 
 namespace ManneDoForms.Droid
 {
-    [Activity(Label = "Manne Do Forms", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : Xamarin.Forms.Platform.Android.FormsApplicationActivity
+    [Activity(Label = "Manne Do Forms", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, Theme = "@style/MyTheme")]
+    public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
+
             base.OnCreate(savedInstanceState);
 
             // Init IoC Container
@@ -26,6 +29,7 @@ namespace ManneDoForms.Droid
             Resolver.SetResolver(new TinyResolver(container));
 
             // Init Forms
+            Forms.SetFlags("FastRenderers_Experimental");
             Forms.Init(this, savedInstanceState);
 
             // Handle Device Rotation
