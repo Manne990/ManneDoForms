@@ -236,3 +236,4 @@ _Pvt_Extensions
 .fake/
 /server/HIAB.Server/build/files
 .mannedoforms.droidres.db
+.mannedoforms.db
